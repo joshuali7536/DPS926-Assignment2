@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FFXIVMountTracker.DetailsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Label x:Name="mountName" Text="Mount Name" FontSize="Title"/>
+            <Image x:Name="mountImage" Aspect="AspectFit"/>
+            <Label x:Name="mountMovement" Text="Movement"/>
+            <Label x:Name="mountOwned" Text="0%"/>
+            <Label x:Name="mountSeats" Text=""/>
+            <Label Text="Description" FontSize="Subtitle" FontAttributes="Bold"/>
+            <Label x:Name="mountDesc" Text="body"/>
+            <Label x:Name="mountEnchDesc" Text="body"/>
+
+            <Label Text="Sources" FontSize="Subtitle" FontAttributes="Bold"/>
+            <ListView x:Name="mountSourceList" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding text}" Detail="{Binding type}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Favourite" Order="Primary" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

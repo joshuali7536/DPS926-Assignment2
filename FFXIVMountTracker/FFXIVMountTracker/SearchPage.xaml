@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FFXIVMountTracker.SearchPage">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <SearchBar SearchButtonPressed="SearchBar_SearchButtonPressed" TextChanged="SearchBar_TextChanged" Placeholder="Mount name"/>
+
+            <!--ListView for searched mounts-->
+            <ListView x:Name="mountList" RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Property=Height, Factor=1, Constant=50}" ItemSelected="mountList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding name}" ImageSource="{Binding icon}">
+                            <ImageCell.ContextActions>
+                                <MenuItem Text="Favourite" CommandParameter="{Binding .}" IsDestructive="False" Clicked="favourite_Clicked"/>
+                            </ImageCell.ContextActions>
+                        </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </RelativeLayout>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        
+    </ContentPage.ToolbarItems>
+</ContentPage>
